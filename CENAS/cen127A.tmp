@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvh0tiwvxm8qr"]
+
+[ext_resource type="Texture2D" uid="uid://dgimbnhxkmm2j" path="res://ASSETS/streets-of-rage-02-1060x596.png" id="1_gcp85"]
+[ext_resource type="PackedScene" uid="uid://bi1ukw5acgknj" path="res://testes/Playertestes.tscn" id="3_qkywx"]
+[ext_resource type="PackedScene" uid="uid://bcu1jrfda6bpm" path="res://CENAS/camera_2d.tscn" id="3_xrjm2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w4237"]
+size = Vector2(669.5, 52.25)
+
+[node name="cenario" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(259, 282)
+scale = Vector2(0.503774, 0.432047)
+texture = ExtResource("1_gcp85")
+
+[node name="Camera2D" parent="." instance=ExtResource("3_xrjm2")]
+position = Vector2(290, 291)
+scale = Vector2(-27.7004, -361.291)
+
+[node name="Colisions" type="StaticBody2D" parent="."]
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisions"]
+position = Vector2(283, 286)
+shape = SubResource("RectangleShape2D_w4237")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Colisions"]
+position = Vector2(315, 438)
+shape = SubResource("RectangleShape2D_w4237")
+
+[node name="Player" parent="." instance=ExtResource("3_qkywx")]
+position = Vector2(253, 353)
+scale = Vector2(1, 1)

@@ -1,0 +1,174 @@
+[gd_scene load_steps=20 format=3 uid="uid://bvh0tiwvxm8qr"]
+
+[ext_resource type="PackedScene" uid="uid://bhmvmxvmx7egc" path="res://CENAS/UI/ui_canvas.tscn" id="1_22jkg"]
+[ext_resource type="Script" path="res://CODES/Levels/Level1.gd" id="1_370ti"]
+[ext_resource type="Texture2D" uid="uid://1yjgn5m587j6" path="res://ASSETS/bigbb111TRAS.png" id="3_ewldi"]
+[ext_resource type="Script" path="res://CODES/UI/Camera2D.gd" id="3_n2urj"]
+[ext_resource type="PackedScene" uid="uid://b62oepd7cyjxs" path="res://CENAS/Player/Adamastor.tscn" id="4_ht12f"]
+[ext_resource type="PackedScene" uid="uid://cma2dfvw4rbdd" path="res://CENAS/ITENS/azulzinho.tscn" id="5_wsuii"]
+[ext_resource type="PackedScene" uid="uid://dulq8gg3qloxg" path="res://CENAS/Spawn/spawn_enemy.tscn" id="6_lckk2"]
+[ext_resource type="Texture2D" uid="uid://dhybxpgms21as" path="res://ASSETS/bigbb222FRENTE.png" id="7_p0fgs"]
+[ext_resource type="AudioStream" uid="uid://v88olu1ore2a" path="res://hahaha.mp3" id="9_kh7pa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w4237"]
+size = Vector2(2362, 52.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d3yp4"]
+size = Vector2(52.5, 246.625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u6evb"]
+size = Vector2(68, 151.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n3xu1"]
+size = Vector2(77.7067, 36.0564)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x2mbg"]
+size = Vector2(543, 129)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4c86a"]
+size = Vector2(71, 135.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y5vro"]
+size = Vector2(132.5, 130.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ogxn"]
+size = Vector2(511.5, 119.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vbx8t"]
+size = Vector2(401, 121)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eottj"]
+size = Vector2(148, 231.456)
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_370ti")
+
+[node name="UI Canvas" parent="." instance=ExtResource("1_22jkg")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1180, 291)
+texture = ExtResource("3_ewldi")
+
+[node name="baixo" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 7
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="baixo"]
+position = Vector2(1179, 437)
+shape = SubResource("RectangleShape2D_w4237")
+
+[node name="coxa" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coxa"]
+position = Vector2(747, 181)
+shape = SubResource("RectangleShape2D_d3yp4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="coxa"]
+position = Vector2(1068, 181.625)
+shape = SubResource("RectangleShape2D_d3yp4")
+
+[node name="caixota" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="caixota"]
+position = Vector2(1207, 243.75)
+shape = SubResource("RectangleShape2D_u6evb")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="caixota"]
+position = Vector2(1129, 200)
+shape = SubResource("RectangleShape2D_u6evb")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="caixota"]
+position = Vector2(1173.71, 272.831)
+rotation = 1.14319
+shape = SubResource("RectangleShape2D_n3xu1")
+
+[node name="prate" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="prate"]
+light_mask = 2
+visibility_layer = 7
+position = Vector2(272.5, 234.5)
+shape = SubResource("RectangleShape2D_x2mbg")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="prate"]
+light_mask = 2
+visibility_layer = 7
+position = Vector2(627.5, 254.75)
+shape = SubResource("RectangleShape2D_4c86a")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="prate"]
+position = Vector2(1333, 255)
+shape = SubResource("RectangleShape2D_4c86a")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="prate"]
+position = Vector2(1415, 255)
+shape = SubResource("RectangleShape2D_4c86a")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="prate"]
+position = Vector2(1908, 235)
+shape = SubResource("RectangleShape2D_x2mbg")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="prate"]
+position = Vector2(2244.25, 236.25)
+shape = SubResource("RectangleShape2D_y5vro")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="prate"]
+position = Vector2(2425, 455)
+shape = SubResource("RectangleShape2D_y5vro")
+
+[node name="parede" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="parede"]
+position = Vector2(794.25, 230.75)
+shape = SubResource("RectangleShape2D_1ogxn")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="parede"]
+position = Vector2(1441.5, 230.5)
+shape = SubResource("RectangleShape2D_vbx8t")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="parede"]
+position = Vector2(2397.07, 306.055)
+rotation = -0.453786
+shape = SubResource("RectangleShape2D_eottj")
+
+[node name="Adamastor" parent="." instance=ExtResource("4_ht12f")]
+position = Vector2(52, 344)
+collision_mask = 3
+
+[node name="aiai" type="AudioStreamPlayer2D" parent="Adamastor"]
+position = Vector2(-20.8, -137.6)
+scale = Vector2(0.4, 0.4)
+stream = ExtResource("9_kh7pa")
+autoplay = true
+
+[node name="Azulzinho" parent="." instance=ExtResource("5_wsuii")]
+position = Vector2(1299, 344)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(213, 291)
+zoom = Vector2(3, 3)
+script = ExtResource("3_n2urj")
+
+[node name="Bigbb222frente" type="Sprite2D" parent="."]
+z_index = 4096
+position = Vector2(1180, 291)
+texture = ExtResource("7_p0fgs")
+
+[node name="SpawnEnemy" parent="." instance=ExtResource("6_lckk2")]
+position = Vector2(279, 193)
+
+[node name="SpawnEnemy2" parent="." instance=ExtResource("6_lckk2")]
+position = Vector2(1530, 167)
+enemy_amount = 5
+
+[node name="SpawnEnemy3" parent="." instance=ExtResource("6_lckk2")]
+position = Vector2(944, 175)
+enemy_amount = 5

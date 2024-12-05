@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dulq8gg3qloxg"]
+
+[ext_resource type="Script" path="res://CODES/Spawn/spawn_enemy.gd" id="1_r41xa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7gyn2"]
+size = Vector2(110, 337)
+
+[node name="SpawnEnemy" type="Area2D"]
+script = ExtResource("1_r41xa")
+enemy_amount = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(45, 109.5)
+shape = SubResource("RectangleShape2D_7gyn2")
+
+[connection signal="body_entered" from="." to="." method="_on_spawn_enemy_body_entered"]

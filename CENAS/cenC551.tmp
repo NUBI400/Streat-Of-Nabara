@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvh0tiwvxm8qr"]
+
+[ext_resource type="Texture2D" uid="uid://ckgocm34f7hc8" path="res://ASSETS/bigbb.png" id="1_18v6t"]
+[ext_resource type="PackedScene" uid="uid://bcu1jrfda6bpm" path="res://CENAS/camera_2d.tscn" id="3_xrjm2"]
+[ext_resource type="PackedScene" uid="uid://b0rhxn548wmye" path="res://testes/testespulo.tscn" id="4_ydlly"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w4237"]
+size = Vector2(669.5, 52.25)
+
+[node name="cenario" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(291.5, 291.5)
+scale = Vector2(0.913136, 0.995833)
+texture = ExtResource("1_18v6t")
+
+[node name="Camera2D" parent="." instance=ExtResource("3_xrjm2")]
+position = Vector2(290, 291)
+scale = Vector2(-27.7004, -361.291)
+
+[node name="Colisions" type="StaticBody2D" parent="."]
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisions"]
+position = Vector2(286, 274)
+shape = SubResource("RectangleShape2D_w4237")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Colisions"]
+position = Vector2(315, 437)
+shape = SubResource("RectangleShape2D_w4237")
+
+[node name="testespulo" parent="." instance=ExtResource("4_ydlly")]
+position = Vector2(357, 351)
+scale = Vector2(0.5, 0.5)

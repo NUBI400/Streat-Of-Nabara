@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvh0tiwvxm8qr"]
+
+[ext_resource type="Texture2D" uid="uid://b4w4417nqy18q" path="res://ASSETS/cenario.jpg" id="1_6krmh"]
+[ext_resource type="PackedScene" uid="uid://bcu1jrfda6bpm" path="res://CENAS/camera_2d.tscn" id="3_xrjm2"]
+[ext_resource type="PackedScene" uid="uid://b62oepd7cyjxs" path="res://CENAS/Adamastor.tscn" id="4_245my"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w4237"]
+size = Vector2(385, 52.25)
+
+[node name="cenario" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(768, 291)
+texture = ExtResource("1_6krmh")
+
+[node name="Camera2D" parent="." instance=ExtResource("3_xrjm2")]
+position = Vector2(290, 291)
+scale = Vector2(-27.7004, -361.291)
+
+[node name="Colisions" type="StaticBody2D" parent="."]
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisions"]
+position = Vector2(290.5, 209.875)
+shape = SubResource("RectangleShape2D_w4237")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Colisions"]
+position = Vector2(146, 390)
+shape = SubResource("RectangleShape2D_w4237")
+
+[node name="Adamastor" parent="." instance=ExtResource("4_245my")]
+position = Vector2(291, 301)
+scale = Vector2(1, 1)
