@@ -1,0 +1,112 @@
+[gd_scene load_steps=9 format=3 uid="uid://cuxnol7e16v6u"]
+
+[ext_resource type="FontFile" uid="uid://ccgmt7wrmhm7" path="res://ASSETS/fonts/Skranji-Regular.ttf" id="1_7sb11"]
+[ext_resource type="Shader" path="res://SHADERS/TV.gdshader" id="2_63pvv"]
+[ext_resource type="Texture2D" uid="uid://1yjgn5m587j6" path="res://ASSETS/bigbb111TRAS.png" id="4_xcpg6"]
+[ext_resource type="Texture2D" uid="uid://dhybxpgms21as" path="res://ASSETS/bigbb222FRENTE.png" id="5_4j8hs"]
+
+[sub_resource type="Animation" id="Animation_1l6yb"]
+resource_name = "dawd"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yxv2c"]
+_data = {
+"dawd": SubResource("Animation_1l6yb")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0nfts"]
+content_margin_left = 10.0
+content_margin_bottom = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v7jnq"]
+shader = ExtResource("2_63pvv")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.17
+shader_parameter/scanlines_width = 0.07
+shader_parameter/grille_opacity = 0.3
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 2.0
+shader_parameter/roll_size = 4.655
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.0
+shader_parameter/noise_opacity = 0.044
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 4.75e-08
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 1.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+
+[node name="Vitoria" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4614, 360)
+scale = Vector2(3.91017, 3)
+texture = ExtResource("4_xcpg6")
+
+[node name="Bigbb222frente" type="Sprite2D" parent="."]
+z_index = 4096
+position = Vector2(4614, 360)
+scale = Vector2(3.91017, 3)
+texture = ExtResource("5_4j8hs")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(13842, 360)
+scale = Vector2(3.91017, 3)
+texture = ExtResource("4_xcpg6")
+
+[node name="Bigbb222frente2" type="Sprite2D" parent="."]
+z_index = 4096
+position = Vector2(13842, 360)
+scale = Vector2(3.91017, 3)
+texture = ExtResource("5_4j8hs")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yxv2c")
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+
+[node name="Venceu" type="Label" parent="Camera2D"]
+offset_left = -425.0
+offset_top = -223.0
+offset_right = 420.0
+offset_bottom = -59.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_7sb11")
+theme_override_font_sizes/font_size = 120
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0nfts")
+text = "PEGAMOS A TV"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="ColorRect2" type="ColorRect" parent="Camera2D"]
+z_index = -1
+offset_left = -649.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0.254902, 0.254902, 0.254902, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D"]
+z_index = 4096
+material = SubResource("ShaderMaterial_v7jnq")
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0

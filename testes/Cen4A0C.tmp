@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://de5o0jkmnuehq"]
+
+[ext_resource type="Texture2D" uid="uid://dy7mf5ovs4b3v" path="res://icon.svg" id="1_05llq"]
+[ext_resource type="PackedScene" uid="uid://bi1ukw5acgknj" path="res://testes/Player.tscn" id="2_rdv86"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_duelv"]
+size = Vector2(1288, 145)
+
+[node name="CenaTestes" type="Node2D"]
+
+[node name="Cenario" type="Node2D" parent="."]
+
+[node name="Floor" type="StaticBody2D" parent="Cenario"]
+collision_layer = 2
+
+[node name="Sprite" type="Sprite2D" parent="Cenario/Floor"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(639, 642)
+scale = Vector2(10.0469, 1.15625)
+texture = ExtResource("1_05llq")
+
+[node name="shape" type="CollisionShape2D" parent="Cenario/Floor"]
+position = Vector2(642, 643)
+shape = SubResource("RectangleShape2D_duelv")
+
+[node name="Player" parent="." instance=ExtResource("2_rdv86")]
+position = Vector2(218, 529)

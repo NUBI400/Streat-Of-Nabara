@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0rhxn548wmye"]
+
+[ext_resource type="Texture2D" uid="uid://dy7mf5ovs4b3v" path="res://icon.svg" id="1_o1qcr"]
+[ext_resource type="Script" path="res://testes/testespulo.gd" id="1_om7nq"]
+
+[node name="testespulo" type="CharacterBody2D"]
+script = ExtResource("1_om7nq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_o1qcr")

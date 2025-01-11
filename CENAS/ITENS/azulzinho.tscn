@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cma2dfvw4rbdd"]
+
+[ext_resource type="Script" path="res://CODES/Itens/azulzinho.gd" id="1_sro8t"]
+[ext_resource type="Texture2D" uid="uid://0slclsg01gtt" path="res://pilula.png" id="2_r4pdf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kbppd"]
+size = Vector2(54, 52)
+
+[node name="Azulzinho" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_sro8t")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_r4pdf")
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kbppd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

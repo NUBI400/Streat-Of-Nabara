@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpjk3rxev7uio"]
+
+[ext_resource type="Script" path="res://CODES/Enemys/enemy_attack.gd" id="1_vgaw2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6nwb"]
+size = Vector2(36.75, 57)
+
+[node name="EnemyAttack" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_vgaw2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.375, 11.5)
+shape = SubResource("RectangleShape2D_m6nwb")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_attack_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

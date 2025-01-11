@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=3 uid="uid://bo710dbxhlnwn"]
+
+[ext_resource type="Script" path="res://testes/Veio.gd" id="1_n6j6n"]
+[ext_resource type="Texture2D" uid="uid://bwe2ewul3os4f" path="res://ASSETS/MC.png" id="2_3qnib"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nllpx"]
+size = Vector2(19, 9)
+
+[sub_resource type="Animation" id="Animation_wm3t6"]
+resource_name = "andando"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_hvw4j"]
+resource_name = "correndo"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_26k3b"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bk82x"]
+_data = {
+"andando": SubResource("Animation_wm3t6"),
+"correndo": SubResource("Animation_hvw4j"),
+"idle": SubResource("Animation_26k3b")
+}
+
+[node name="Veio" type="CharacterBody2D"]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_n6j6n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 12)
+shape = SubResource("RectangleShape2D_nllpx")
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-1, -15)
+texture = ExtResource("2_3qnib")
+hframes = 7
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bk82x")
+}
